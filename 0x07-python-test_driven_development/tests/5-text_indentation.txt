@@ -1,0 +1,25 @@
+The 'text_indentation' Module
+==================
+
+Using "text_indentation"
+------------------
+
+	import "text_indentation" from the "text_indentation" module:
+
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Now use it:
+
+    >>> text_indentation(45)
+    Traceback (most recent call last):
+    	...
+    TypeError: text must be a string
+
+    >>> text_indentation("    My_name.    is?  Fares:Sassi")
+    My_name.
+    <BLANKLINE>
+    is?
+    <BLANKLINE>
+    Fares:
+    <BLANKLINE>
+    Sassi
