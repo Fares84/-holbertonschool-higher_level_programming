@@ -96,4 +96,4 @@ class Rectangle:
             for y in range(self.__width):
                 srec += "#"
             srec += "\n"
-        return srec
+        return srec[:-1]
