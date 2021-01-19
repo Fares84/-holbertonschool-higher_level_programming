@@ -1,0 +1,30 @@
+The "base_geometry" module
+==================
+import base_geometry from 7-base_geometry.py
+
+       >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
+
+    >>> bg = BaseGeometry()
+
+    >>> bg.integer_validator("word", "7")
+    Traceback (most recent call last):
+    	...
+    TypeError: name must be an integer
+
+    bg.integer_validator("word")
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional
+    argument: "value"
+
+    bg.integer_validator(None, 7)
+    Traceback (most recent call last):
+        ...
+    TypeError: None must ne an integer
+
+    >>> bg.integer_validator("word", -7)
+    Traceback (most recent call last):
+        ...
+    ValueError: word must be greater than 0
