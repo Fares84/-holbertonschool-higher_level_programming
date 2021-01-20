@@ -3,5 +3,4 @@
 representing the Pascals triangle of n """
 
 
-
 def pascal_triangle(n):
