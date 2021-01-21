@@ -26,3 +26,6 @@ class Student:
         """
         if not attrs or type(attrs) is not list:
             return self.__dict__
+        if isinstance(attrs, list) and ([isinstance(n, str)] for n in attrs):
+            return {item: getattr(self, item) for item in attrs if
+                    hasattr(self, item)}
