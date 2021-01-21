@@ -32,9 +32,9 @@ class Rectangle(BaseGeometry):
         return self.__height * self.__width
 
     def __str__(self):
-         """ str definition
+        """ str definition
 
-         Return:
-             [str] -- [prints the rectangle]
-         """
-         return "[Rectangle]" + str(self.__width) + "/" + str(self.__height)
+        Return:
+            [str] -- [prints the rectangle]
+        """
+        return "[Rectangle]" + str(self.__width) + "/" + str(self.__height)
