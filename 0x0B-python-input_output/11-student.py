@@ -36,5 +36,5 @@ class Student:
         Arguments:
             json{[json]} -- [dictionary]
         """
-        for attr in json.items():
+        for attr in json:
             self.__dict__[attr] = json[attr]
