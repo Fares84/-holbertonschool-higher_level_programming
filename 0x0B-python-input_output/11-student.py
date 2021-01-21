@@ -26,11 +26,15 @@ class Student:
         """
         if not attrs or type(attrs) is not list:
             return self.__dict__
+        if isinstance(attrs, list) and ([isinstance(n, str)] for n in attrs):
+            return {item: getattr(self, item) for item in attrs if
+                    hasattr(self, item)}
 
     def reload_from_json(self, json):
-        """  replaces all attributes of the Student instance
+        """method that replaces all attributes of Student instance
 
         Arguments:
-            json {[dict]} -- [dictionary]
+            json{[json]} -- [dictionary]
         """
-        setattr(self, a, json)
+        for attr in json.items():
+            self.__dict__[attr] = json[attr]
