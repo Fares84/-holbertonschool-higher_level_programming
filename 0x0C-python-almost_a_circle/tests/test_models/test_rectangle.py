@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+""" test rectangle """
+import unittest
+from models.rectangle import Rectangle
+
+
+class TestRectangle(unittest.TestCase):
+    """ test rectangle
+
+    Args:
+        unittest ([unittest]): unit test framework
+    """
+    def test_base_typeError(self):
+        """ test typeError """
+        self.assertRaises(TypeError, Rectangle, "Hol", "Berton")
+
+    def test_rectangle_one_arg(self):
+        """ test one argument """
+        self.assertRaises(TypeError, Rectangle, 1)
+
+    def test_rectangle_str(self):
+        """ str error"""
+        self.assertRaises(TypeError, Rectangle, 1, "str")
+        self.assertRaises(TypeError, Rectangle, "s1", 2)
+
+    def test_rectangle_list(self):
+        """ list error """
+        self.assertRaises(TypeError, Rectangle, 1, [2, 3])
+        self.assertRaises(TypeError, Rectangle, [2, 3], 1)
+
+    def test_rectangle_dict(self):
+        """ list error """
+        self.assertRaises(TypeError, Rectangle, 1, {"2": 3})
+        self.assertRaises(TypeError, Rectangle, {"2": 3}, 1)
+
+    def test_rectangle_zero(self):
+        """ zero value """
+        self.assertRaises(ValueError, Rectangle, 0, 1)
+        self.assertRaises(ValueError, Rectangle, 1, 0)
+
+    def test_rectangle_negative(self):
+        """ zero value """
+        self.assertRaises(ValueError, Rectangle, 1, -1)
+        self.assertRaises(ValueError, Rectangle, -1, 1)
