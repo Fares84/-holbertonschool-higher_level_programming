@@ -135,12 +135,12 @@ class Rectangle(Base):
         returns:
         [str] -- prints the rectangle in #
         """
-        for x in range(self.__x):
+        for y in range(self.__y):
             print()
-        for x in range(self.__height):
-            for x in range(self.__y):
+        for i in range(self.__height):
+            for y in range(self.__x):
                 print(" ", end="")
-            for x in range(self.__width):
+            for j in range(self.__width):
                 print("#", end="")
             print()
 
