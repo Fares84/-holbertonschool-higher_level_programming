@@ -47,3 +47,35 @@ class Square(Rectangle):
         """
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
                                                  self.height)
+
+    def update(self, *args, **kwargs):
+        """ update method
+        """
+        if len(args) > 0:
+            for i in range(len(args)):
+                if i == 0:
+                    self.id = args[i]
+                if i == 1:
+                    self.size = args[i]
+                if i == 1:
+                    self.x = args[i]
+                if i == 1:
+                    self.y = args[i]
+        if not args and kwargs:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
+
+    def to_dictionary(self):
+        """ dict method
+
+        returns:
+            [dict]: dict representation of square
+        """
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
