@@ -151,7 +151,7 @@ class Rectangle(Base):
             [str]: update the str method
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
-                                                    self.width, self.height)
+                                                       self.width, self.height)
 
     def update(self, *args, **kwargs):
         """ updated class rectangle """
