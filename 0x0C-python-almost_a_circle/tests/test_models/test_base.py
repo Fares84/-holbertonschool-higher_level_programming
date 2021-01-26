@@ -44,7 +44,5 @@ class TestBase(unittest.TestCase):
         B = Base({"Holberton": "School"})
         self.assertEqual(B.id, {"Holberton": "School"})
 
-
-
 if __name__ == '__main__':
     unittest.main()
