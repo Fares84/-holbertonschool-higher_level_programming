@@ -13,8 +13,8 @@ class TestBase(unittest.TestCase):
 
     def test_base_zero_args(self):
         """ test args for our base """
-        B = Base(0)
-        self.assertEqual(B.id, 0)
+        B = Base(1)
+        self.assertEqual(B.id, 1)
 
     def test_base_negative(self):
         B = Base(-1)
