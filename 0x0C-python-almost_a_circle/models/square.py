@@ -18,7 +18,7 @@ class Square(Rectangle):
             y (int): y coordinates
             id ([type], optional): square id
         """
-        super().init(size, size, x, y, id)
+        super().__init__(size, size, x, y, id)
 
         @property
         def size(self):
