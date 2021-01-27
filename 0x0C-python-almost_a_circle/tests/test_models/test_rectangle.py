@@ -160,6 +160,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 1)
         self.assertEqual(r1.y, 1)
 
+    def test_update_err_rectangle(self):
+        r1 = Rectangle(1, 2, 4, 5, 100)
+        self.assertRaises(TypeError, r1.update, 1, "s")
+        self.assertRaises(TypeError, r1.update, 1, 2, True)
+        self.assertRaises(TypeError, r1.update, 1, 2, 3, 1.5)
+        self.assertRaises(TypeError, r1.update, 1, 2, 3, 4, [1, 2])
+        self.assertRaises(ValueError, r1.update, 1, 2, -1)
+        self.assertRaises(ValueError, r1.update, 1, 2, 3, -100)
+        self.assertRaises(ValueError, r1.update, 1, 2, 3, 4, -99)
 
 if __name__ == '__main__':
     unittest.main()
