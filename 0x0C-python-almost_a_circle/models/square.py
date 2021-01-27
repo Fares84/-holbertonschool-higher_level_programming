@@ -46,7 +46,7 @@ class Square(Rectangle):
             [str]: str representation of square
         """
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                 self.height)
+                                                 self.width)
 
     def update(self, *args, **kwargs):
         """ update method
@@ -78,4 +78,4 @@ class Square(Rectangle):
         returns:
             [dict]: dict representation of square
         """
-        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        return {"id": self.id, "size": self.width, "x": self.x, "y": self.y}
