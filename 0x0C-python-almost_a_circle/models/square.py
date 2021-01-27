@@ -51,15 +51,15 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """ update method
         """
-        if len(args) > 0:
+        if args and len(args) != 0:
             for i in range(len(args)):
                 if i == 0:
                     self.id = args[i]
                 if i == 1:
                     self.size = args[i]
-                if i == 1:
+                if i == 2:
                     self.x = args[i]
-                if i == 1:
+                if i == 3:
                     self.y = args[i]
         if not args and kwargs:
             for key, value in kwargs.items():
