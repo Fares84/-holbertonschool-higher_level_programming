@@ -45,22 +45,5 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(ValueError, Square, 2, 4, -3, 7)
         self.assertRaises(ValueError, Square, 2, -4, 3, 7)
 
-    def test_square_update(self):
-        s1 = Square(2, 6, 3, 100)
-        s1.update(99, 98, 97, 96)
-        self.assertEqual(s1.id, 99)
-        self.assertEqual(s1.x, 97)
-        self.assertEqual(s1.y, 96)
-        self.assertEqual(s1.size, 98)
-        self.assertEqual(s1.area(), 9604)
-        s1.update(1000, x=1, y=1)
-        self.assertEqual(s1.id, 100)
-        self.assertEqual(s1.x, 97)
-        self.assertEqual(s1.y, 96)
-        s1.update(size=1, y=1)
-        self.assertEqual(s1.width, 1)
-        self.assertEqual(s1.size, 1)
-        self.assertEqual(s1.y, 1)
-
 if __name__ == '__main__':
     unittest.main()
