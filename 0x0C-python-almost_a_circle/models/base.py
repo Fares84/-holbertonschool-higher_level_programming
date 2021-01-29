@@ -2,6 +2,7 @@
 """ Base definition """
 from os import path
 import json
+import csv
 
 
 class Base:
@@ -39,13 +40,13 @@ class Base:
         Args:
             list_objs ([list of objects]): lifs of objects
         """
-        My_list = []
         filename = cls.__name__ + ".json"
         with open(filename, mode="w") as MyFile:
             if list_objs is None:
                 MyFile.write(Base.to_jason_string("[]"))
-            for item in list_objs:
-                My_list.append(item.to_dictionary())
+            My_list = []
+            for items in list_objs:
+                My_list.append(items.to_dictionary())
             MyFile.write(Base.to_json_string(My_list))
 
     @staticmethod
@@ -81,10 +82,49 @@ class Base:
         returns:
             [list]: list of instances
         """
-        filename = cls.__name__ + "json"
-        if not path.exists(filename):
+        filename = cls.__name__ + ".json"
+        if path.exists("{}.json".format(cls.__name__)) is False:
             return []
         with open(filename, mode="r") as MyFile:
             My_list = cls.from_json_string(MyFile.read())
-            list_of_instances = [cls.create(**attrs) for attrs in My_list]
+            list_of_instances = [cls.create(**items) for items in My_list]
             return list_of_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save to csv file method
+
+        Args:
+            list_objs ([list]): list of objs
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w") as MyFile:
+            if list_objs is None:
+                MyFile.write("[]")
+            if cls.__name__ == "Rectangle":
+                keys = ["id", "width", "height", "x", "y"]
+            elif cls.__name__ == "Square":
+                keys = ["id", "size", "x", "y"]
+            writer = csv.DictWriter(MyFile, fieldnames=keys)
+            writer.writeheader()  # add column names in the CSV file
+            for i in list_objs:
+                writer.writerow(i.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load from csv file method
+
+        returns:
+            list: list of objects
+        """
+        filename = cls.__name__ + ".csv"
+        if path.exists("{}.csv".format(cls.__name__)) is False:
+            return []
+        with open(filename, mode="r") as MyFile:
+            My_list = []
+            reader = csv.DictReader(MyFile)
+            for dict in reader:
+                for keys, value in dict.items():
+                    dict[keys] = int(value)
+                My_list.append(cls.create(**dict))
+            return My_list
