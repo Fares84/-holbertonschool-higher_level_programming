@@ -15,8 +15,7 @@ if __name__ == "__main__":
     # ("mysql+pymysql://sylvain:passwd@127.0.0.1/
     # db?host=localhost?port=3306")
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(_user,  _passwd, _db),
-                           pool_pre_ping=True)
+                           .format(_user,  _passwd, _db))
 
     """ the way to issue CREATE is to use create_all() on MetaData object """
     Base.metadata.create_all(engine)
