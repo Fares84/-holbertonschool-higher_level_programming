@@ -16,7 +16,7 @@ if __name__ == "__main__":
                                 _db,
                                 3306)
     cur = data_base.cursor()
-    cur.execute("""SELECT * FROM states WHERE name LIKE 'N%' ORDER BY
+    cur.execute("""SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY
     states.id ASC""")
     rows = cur.fetchall()
     for row in rows:
