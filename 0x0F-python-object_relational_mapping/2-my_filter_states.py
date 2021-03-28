@@ -18,7 +18,7 @@ if __name__ == "__main__":
                                 _db,
                                 3306)
     cur = data_base.cursor()
-    cur.execute("""SELECT * FROM states WHERE name = '{}'
+    cur.execute("""SELECT * FROM states WHERE BINARY name = '{}'
     ORDER BY states.id ASC""".format(name))
     rows = cur.fetchall()
     for row in rows:
