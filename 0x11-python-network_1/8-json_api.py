@@ -15,11 +15,10 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    if len(argv) == 2:
+    if len(argv) > 1:
         q = argv[1]
     else:
         q = ""
-    
     value = {"q": q}
     url = "http://0.0.0.0:5000/search_user"
     _req = requests.post(url, value)
