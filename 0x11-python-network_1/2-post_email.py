@@ -16,4 +16,4 @@ if __name__ == "__main__":
     _request = urllib.request.Request(url, data)
     with urllib.request.urlopen(_request) as response:
         _page = response.read()
-        print(_page.read().decode())
+        print(_page.decode())
