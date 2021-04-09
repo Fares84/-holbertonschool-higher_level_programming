@@ -8,11 +8,12 @@ import sys
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    url = argv[1]
     values = {"email": argv[2]}
 
     data = urllib.parse.urlencode(values)
     data = data.encode()
     _request = urllib.request.Request(url, data)
     with urllib.request.urlopen(_request) as response:
-        print(response.read().decode())
+        _page = response.read()
+        print(_page.read().decode())
